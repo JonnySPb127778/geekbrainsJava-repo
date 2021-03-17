@@ -1,0 +1,53 @@
+- Welcome -
+ - Bob in chat! - 
+You@ALL>  Enter your message
+You@ALL>  fdfdf
+You@ALL>  1
+You@ALL>  2
+You@ALL>  3
+You@ALL>  234234
+You@ALL>  234234234
+You@ALL>  23423423
+You@ALL>  22
+You@ALL>  dfdfsdf
+You@ALL>  xcvxvzxv
+Server was broken
+- Welcome -
+Server was broken
+- Welcome -
+ - Bob in chat! - 
+ - Tom in chat! - 
+Tom@ALL> Enter your message
+You@ALL>  Enter your message
+Tom@ALL> jkjkjk
+You@ALL>  kjkjkk
+ - Tom in chat! - 
+ - Tom left chat! -
+You@ALL>  jhjhj
+Server was broken
+Server was broken
+- Welcome -
+ - Bob in chat! - 
+You@ALL>  Enter your message
+Tom@ALL> Enter your message
+Tom@ALL> ghghghgh
+You@ALL>  hghghgh
+Tom@You>  cvcvcvc
+Tom@You>  dsdsdsd
+Server was broken
+ - Welcome - 
+ - Bob in chat! - 
+ - Alex in chat! - 
+ - Welcome - 
+ - Bob in chat! - 
+ - Welcome - 
+ - Bob in chat! - 
+ - Alex in chat! - 
+ - Alex left chat! -
+ - Welcome - 
+ - Bob in chat! - 
+ - Alex in chat! - 
+Alex@ALL> Enter your message
+You@ALL> Enter your message
+You@ALL> dsdsds
+Alex@ALL> dsdsdsd
