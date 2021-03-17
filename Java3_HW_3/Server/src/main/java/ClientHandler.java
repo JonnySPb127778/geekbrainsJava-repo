@@ -45,6 +45,7 @@ public class ClientHandler implements Runnable {
             System.out.println("[DEBUG] client " + nickName + " start processing");
             while (running) {
                 String msg = in.readUTF(); // Сообщения от клиента
+                System.out.println("[DEBUG] message from client: " + msg);
                 if (msg.charAt(0) == '$') { // Запрос от клиента?
                     switch (msg) {// Обработчик запросов от клиента
                         case "$list":
@@ -72,7 +73,7 @@ public class ClientHandler implements Runnable {
                             }
                             else {
                                 createUser(tmpStrArr[1], tmpStrArr[2]);
-                                sendMessage(" - User created -\n- Welcome - ");
+                                sendMessage(" - User created -\n - Welcome - ");
                                 sendMessage("@NewNick>" + nickName);
                                 authorization = true;
                                 System.out.println("[DEBUG] new client " + nickName + " named by " + tmpStrArr[1]);
@@ -105,10 +106,7 @@ public class ClientHandler implements Runnable {
                         sendMessage(" - You are not authorization user - \n - Execute authorization! - ");
                     }
                 }
-                System.out.println("[DEBUG] message from client: " + msg);
-
             }
-
         } catch (Exception e) {
             System.err.println("Handled connection was broken");
             String nName = nickName;
@@ -174,7 +172,7 @@ public class ClientHandler implements Runnable {
                 bAuthorization = true;
                 System.out.println("[DEBUG] client " + nickName + " named by " + username);
                 nickName = username;
-                sendMessage("- Welcome -");
+                sendMessage(" - Welcome - ");
 
                 server.broadCastMessage( " - " + nickName +" in chat! - ");
                 server.broadCastList();
@@ -182,7 +180,7 @@ public class ClientHandler implements Runnable {
             else {
                 bAuthorization = false;
                 System.out.println("[DEBUG] client " + nickName + " with " + password + " not authorization !" + username);
-                sendMessage("- Incorrect username or password entered -\n- You are not authorization! -");
+                sendMessage(" - Incorrect username or password entered - \n - You are not authorization! -");
             }
         } catch (SQLException e) {
             e.printStackTrace();

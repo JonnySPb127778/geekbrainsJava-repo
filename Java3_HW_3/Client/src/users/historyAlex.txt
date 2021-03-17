@@ -1,0 +1,9 @@
+ - Welcome - 
+ - Alex in chat! - 
+ - Welcome - 
+ - Welcome - 
+ - Alex in chat! - 
+You@ALL> Enter your message
+Bob@ALL> Enter your message
+Bob@ALL> dsdsds
+You@ALL> dsdsdsd

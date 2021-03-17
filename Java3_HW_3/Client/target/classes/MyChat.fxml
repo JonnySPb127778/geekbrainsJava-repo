@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="723.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChatController">
+<AnchorPane prefHeight="723.0" prefWidth="678.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ChatController">
    <Label layoutX="244.0" layoutY="636.0" prefHeight="34.0" prefWidth="99.0" text=" Message :">
       <font>
          <Font size="16.0" />

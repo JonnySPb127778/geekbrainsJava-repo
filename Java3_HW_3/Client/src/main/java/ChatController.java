@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.apache.commons.io.FileUtils;
 
 
 public class ChatController implements Initializable {
@@ -65,8 +66,13 @@ public class ChatController implements Initializable {
     public void disconnect(ActionEvent actionEvent) throws IOException {
         network.writeMessage("$quit");
         network.close();
-
     }
+
+    public void setChatView(String msg, ChatHistory history){
+        chatView.getItems().add(msg);
+        history.writeLineToFile(msg);
+    }
+
 
     public void connect(ActionEvent actionEvent) throws IOException {
 
@@ -94,7 +100,10 @@ public class ChatController implements Initializable {
 
 
         network = Network.getInstance(HOST, PORT);
-        historyFile = ChatHistory.checkFile(nickName);
+        historyFile = new File("src/users/history" + nickName + ".txt");//ChatHistory.checkFile(nickName);"src/users/history" +
+        ReadWriteLinesToFile chatHistory = ChatHistory.getInstance(historyFile);
+        chatHistory.getLastLines(historyFile, 100, chatView);
+
 
         new Thread(() -> {
             try {
@@ -121,7 +130,6 @@ public class ChatController implements Initializable {
                             case "@NewNick":
                                 nickName = tmpStrArr1[1];
                                 nick.setText(nickName);
-
                                 break;
                             case "@Quit":
                                 network.close();
@@ -149,17 +157,20 @@ public class ChatController implements Initializable {
                         };
 
                         if (bReplacement)
-                            rxMsg = tmpStrArr1[0] + "@" + tmpStrArr2[0] + "> " + tmpStrArr2[1];
+                            rxMsg = tmpStrArr1[0] + "@" + tmpStrArr2[0] + ">" + tmpStrArr2[1];
 
                         String finalRxMsg = rxMsg;
-                        Platform.runLater(() -> chatView.getItems().add(finalRxMsg));
-                    }
+                        Platform.runLater(() -> setChatView(finalRxMsg, (ChatHistory)chatHistory));
+                      //  Platform.runLater(() -> chatView.getItems().add(finalRxMsg));
 
+                    }
 
                 }
             } catch (IOException ioException) {
                 System.err.println("Server was broken");
-                Platform.runLater(() -> chatView.getItems().add("Server was broken"));
+                Platform.runLater(() -> setChatView("Server was broken", (ChatHistory)chatHistory));
+            //    Platform.runLater(() -> chatView.getItems().add("Server was broken"));
+
             }
         }).start();
     }

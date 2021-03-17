@@ -11,8 +11,7 @@ public class ChatApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/main/java/MyChat.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("MyChat.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("My Chat");
         primaryStage.setResizable(false);
